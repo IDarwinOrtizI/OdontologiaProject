@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+/* Importa la fuente Poppins de Google Fonts */
+
+/* Aplicación de estilo general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Hace que el padding y el border se incluyan dentro del ancho/alto del elemento */
+    font-family:'Poppins', sans-serif; /* Usa la fuente Poppins */
+}
+
+/* Estilos para el cuerpo del documento */
+body {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    min-height: 100vh; /* Altura mínima de la pantalla completa */
+    background: url('../assets/img/mandibula.jpg') no-repeat; /* Fondo con imagen de la mandíbula */
+    background-size: cover; /* La imagen de fondo cubre todo el área */
+    background-position: center; /* La imagen de fondo está centrada */
+}
+
+/* Estilos para el encabezado */
+header {
+    position: fixed; /* Mantiene el encabezado fijo en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ancho completo */
+    padding: 20px 100px; /* Espaciado interno del encabezado */
+    display: flex;
+    justify-content: space-around; /* Distribuye los elementos equitativamente */
+    align-items: center;
+    z-index: 99; /* Asegura que el encabezado esté encima de otros elementos */
+}
+
+/* Estilo para el logotipo */
+.logo {
+    font-size: 2em;
+    color: aliceblue; /* Color blanco para el logo */
+    user-select: none; /* Evita que el texto se seleccione */
+}
+
+/* Estilos para los enlaces de navegación */
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: aliceblue; /* Color blanco */
+    text-decoration: none; /* Quita subrayado de los enlaces */
+    font-weight: 500;
+    margin-left: 40px; /* Espaciado entre enlaces */
+}
+
+/* Animación de línea bajo los enlaces al pasar el ratón */
+.navigation a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: aliceblue;
+    border-radius: 5px;
+    transform: scaleX(0); /* Oculta la línea por defecto */
+    transition: transform .3s; /* Animación suave */
+}
+
+/* Muestra la línea cuando se pasa el cursor sobre el enlace */
+.navigation a:hover::after{
+    transform: scaleX(1); /* Muestra la línea completa */
+}
+
+/* Estilos para el botón de login */
+.navigation .btnLogin-Popup {
+    width: 130px;
+    height: 50px;
+    background-color: transparent; /* Fondo transparente */
+    border: 2px solid aliceblue; /* Borde blanco */
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: aliceblue; /* Texto blanco */
+    font-weight: 500;
+    margin-left: 40px;
+    transition: 2s; /* Transición suave */
+}
+
+/* Cambia el color del botón al pasar el ratón */
+.navigation .btnLogin-Popup:hover {
+    background-color: aliceblue; /* Fondo blanco */
+    color: black; /* Texto negro */
+}
+
+/* Estilos para el contenedor principal del formulario */
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5); /* Borde semitransparente */
+    border-radius: 20px;
+    backdrop-filter: blur(20px); /* Efecto de desenfoque */
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5); /* Sombra externa */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+    transform: scale(0); /* Oculto inicialmente */
+    transition: transform .5s ease, .2s ease; /* Transición suave */
+}
+
+/* Muestra el formulario cuando la clase active-popup está presente */
+.wrapper.active-popup {
+    transform: scale(1); /* Escala al tamaño completo */
+}
+
+/* Ajusta la altura del formulario cuando está activo */
+.wrapper.active {
+    height: 520px;
+}
+
+/* Estilos comunes para los formularios */
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px; /* Espaciado interno */
+}
+
+/* Formulario de Login por defecto */
+.wrapper .form-box.login {
+    transition: transform .18s ease;
+    transform: translateX(0); /* Aparece en su lugar */
+}
+
+/* Oculta el formulario de Login cuando se activa el de registro */
+.wrapper.active .form-box.login {
+    transition: none;
+    transform: translateX(-400px); /* Desplaza fuera de la vista */
+}
+
+/* Formulario de registro oculto por defecto */
+.wrapper .form-box.registrar {
+    position: absolute;
+    transition: none;
+    transform: translateX(400px); /* Inicialmente fuera de la vista */
+}
+
+/* Muestra el formulario de registro cuando está activo */
+.wrapper.active .form-box.registrar {
+    transition: transform .18s ease;
+    transform: translateX(0); /* Desplaza dentro de la vista */
+}
+
+/* Estilos para el botón de cierre del formulario */
+.wrapper .icon-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #162938;
+    font-size: 2em;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1; /* Asegura que esté por encima de otros elementos */
+}
+
+/* Estilos para el título de los formularios */
+.form-box h2 {
+    font-size: 2em;
+    color:black;
+    text-align: center;
+}
+
+/* Estilos para los campos de entrada */
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938; /* Línea inferior */
+    margin: 30px 0;
+}
+
+/* Estilos para las etiquetas flotantes */
+.input-box label {
+    position: absolute;
+    top: 25px;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #162938; /* Color del texto */
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s; /* Transición suave para las etiquetas */
+}
+
+/* Desplaza las etiquetas hacia arriba cuando el campo está enfocado o tiene valor */
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+/* Estilos para los campos de entrada (input) */
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #162938; /* Color del texto */
+    font-weight: 600;
+    padding: 0 35px 0 5px; /* Espaciado interno */
+}
+
+/* Iconos en los campos de entrada */
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #162938; /* Color de los iconos */
+    line-height: 57px;
+}
+
+/* Estilos para la sección "Recordar" y el enlace "Olvide mi contraseña" */
+.remember-forgot {
+    font-size: .9em;
+    color: #162938; /* Color del texto */
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Color del checkbox de "Recordar" */
+.remember-forgot label input {
+    accent-color: #162938;
+    margin-right: 3px;
+}
+
+/* Estilos para el enlace "Olvide mi contraseña" */
+.remember-forgot a {
+    color: #162938; /* Color del enlace */
+    text-decoration: none;
+}
+
+/* Añade subrayado al pasar el cursor sobre "Olvide mi contraseña" */
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el botón principal de los formularios */
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #162938; /* Color de fondo del botón */
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: aliceblue; /* Color del texto */
+    font-weight: 500;
+}
+
+/* Estilos para el texto de "login-register" */
+.login-register {
+    font-size: .9em;
+    color: #162938; /* Color del texto */
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+/* Estilos para los enlaces dentro de la sección "login-register" */
+.login-register p a {
+    color: #162938;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Subrayado de enlaces al pasar el cursor */
+.login-register p a:hover {
+    text-decoration: underline;
+}
