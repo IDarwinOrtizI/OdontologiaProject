@@ -9,14 +9,13 @@
 </head>
 
 <body>
-    
     <header>
         <h2 class="logo">Logo</h2> <!-- logotipo del sitio -->
         <nav class="navigation">
             <!-- Menú de navegación con enlaces a diferentes secciones -->
             <a href="#">Inicio</a>
             <a href="./pages/nosotros.html">Nosotros</a>
-            <a href="#">Contacto</a>
+            <a href="./pages/contacto.html">Contacto</a>
             <!-- Botón para abrir el formulario de Login -->
             <button class="btnLogin-Popup">Login</button>
         </nav>
@@ -25,41 +24,37 @@
     <!-- Contenedor principal que envuelve los formularios de Login y Registro --> 
     <div class="wrapper">
         <!-- Botón para cerrar el formulario emergente -->
-        <span class="icon-close"><ion-icon name="close"></ion-icon>
-        </span>
+        <span class="icon-close"><ion-icon name="close"></ion-icon></span>
         
         <!-- Formulario de Login -->
         <div class="form-box login">
-            <h2>Login</h2> <!-- Título del formulario de Login -->
-            <form action="#">
+            <h2>Login</h2>
+            <form id="loginForm">
                 <!-- Campo de entrada para el correo electrónico -->
                 <div class="input-box">
                     <span class="icon">
-                        <ion-icon name="mail"></ion-icon> <!-- Icono de email -->
+                        <ion-icon name="mail"></ion-icon>
                     </span>
-                    <input type="email" required> <!-- Input para correo electrónico -->
-                    <label>Email</label> <!-- Etiqueta del campo -->
+                    <input type="email" id="email" required> <!-- Campo de email -->
+                    <label>Email</label>
                 </div>
                 <!-- Campo de entrada para la contraseña -->
                 <div class="input-box">
                     <span class="icon">
-                        <ion-icon name="lock-closed">
-                        </ion-icon>
+                        <ion-icon name="lock-closed"></ion-icon>
                     </span>
-                    <input type="password" required> <!-- Input para la contraseña -->
-                    <label>Contraseña</label> <!-- Etiqueta del campo -->
+                    <input type="password" id="contraseña" required> <!-- Campo de contraseña -->
+                    <label>Contraseña</label>
                 </div>
                 <!-- Opción de recordar el login y enlace para recuperar contraseña -->
                 <div class="remember-forgot">
-                    <label><input type="checkbox"> Recordar</label> <!-- Checkbox para recordar usuario -->
-                    <a href="#">Olvide Mi Contraseña</a> <!-- Enlace para recuperar contraseña -->
+                    <label><input type="checkbox"> Recordar</label>
+                    <a href="#">Olvide Mi Contraseña</a>
                 </div>
                 <!-- Botón de envío del formulario de login -->
-                <button type="submit"class="btn">Login</button>
-                <!-- Enlace para ir al formulario de registro -->
+                <button type="submit" class="btn">Login</button>
                 <div class="login-register">
-                    <p> No tienes una cuenta? <a 
-                    href="#" class="register-link">Registrarse </a></p>
+                    <p> No tienes una cuenta? <a href="#" class="register-link">Registrarse </a></p>
                 </div>
             </form>
         </div>
@@ -74,14 +69,14 @@
                         <ion-icon name="person"></ion-icon>
                     </span>
                     <input type="text" required> <!-- Input para el nombre de usuario -->
-                    <label>Nombre De Usuario</label> <!-- Etiqueta del campo -->
+                    <label>Nombre y apellido</label> <!-- Etiqueta del campo -->
                 </div>
                 <!-- Campo de entrada para el correo electrónico -->
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="mail"></ion-icon>
                     </span>
-                    <input type="text" required>  <!-- Input para el correo electrónico -->
+                    <input type="text" required> <!-- Input para el correo electrónico -->
                     <label>Email</label> <!-- Etiqueta del campo -->
                 </div>
                 <!-- Campo de entrada para la contraseña -->
@@ -109,6 +104,7 @@
     <!-- Scripts externos necesarios para el funcionamiento de los iconos y scripts locales -->
     <script src="../Backend/script.js"></script> <!-- Archivo JavaScript local -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script> <!-- Ionicons para navegadores modernos -->
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> <!-- Ionicons para navegadores antiguos -->
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> <!-- Ionicons para navegadores antiguos -->
 </body>
+
 </html>
