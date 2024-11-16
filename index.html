@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head> 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace la página responsive -->
     <title>Odontologia Login Y Registro</title> <!-- Título de la pestaña del navegador -->
@@ -21,7 +21,7 @@
         </nav>
     </header>
     
-    <!-- Contenedor principal que envuelve los formularios de Login y Registro --> 
+    <!-- Contenedor principal que envuelve los formularios de Login y Registro -->
     <div class="wrapper">
         <!-- Botón para cerrar el formulario emergente -->
         <span class="icon-close"><ion-icon name="close"></ion-icon></span>
@@ -54,57 +54,53 @@
                 <!-- Botón de envío del formulario de login -->
                 <button type="submit" class="btn">Login</button>
                 <div class="login-register">
-                    <p> No tienes una cuenta? <a href="#" class="register-link">Registrarse </a></p>
+                    <p>No tienes una cuenta? <a href="#" class="register-link">Registrarse</a></p>
                 </div>
             </form>
         </div>
         
         <!-- Formulario de Registro -->
         <div class="form-box registrar">
-            <h2>Registrar</h2> <!-- Título del formulario de Registro -->
-            <form action="#">
-                <!-- Campo de entrada para el nombre de usuario -->
+            <h2>Registrar</h2>
+            <form id="registroForm"> <!-- Cambié el id a 'registroForm' -->
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="person"></ion-icon>
                     </span>
-                    <input type="text" required> <!-- Input para el nombre de usuario -->
-                    <label>Nombre y apellido</label> <!-- Etiqueta del campo -->
+                    <input type="text" id="nombre" required> <!-- Campo para nombre -->
+                    <label>Nombre y apellido</label>
                 </div>
-                <!-- Campo de entrada para el correo electrónico -->
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="mail"></ion-icon>
                     </span>
-                    <input type="text" required> <!-- Input para el correo electrónico -->
-                    <label>Email</label> <!-- Etiqueta del campo -->
+                    <input type="email" id="email" required>  <!-- Campo para email -->
+                    <label>Email</label>
                 </div>
-                <!-- Campo de entrada para la contraseña -->
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="lock-closed"></ion-icon>
                     </span>
-                    <input type="password" required> <!-- Input para la contraseña -->
-                    <label>Contraseña</label> <!-- Etiqueta del campo -->
+                    <input type="password" id="contraseña" required> <!-- Campo para contraseña -->
+                    <label>Contraseña</label>
                 </div>
-                <!-- Checkbox para aceptar los términos y condiciones -->
                 <div class="remember-forgot">
-                    <label><input type="checkbox"> Yo acepto los terminos y condiciones</label>
+                    <label><input type="checkbox"> Yo acepto los términos y condiciones</label>
                 </div>
-                <!-- Botón de envío del formulario de registro -->
                 <button type="submit" class="btn">Registrar</button>
-                <!-- Enlace para ir al formulario de login -->
                 <div class="login-register">
-                    <p>ya tienes una cuenta? <a href="#" class="login-link">Login</a></p>
+                    <p>Ya tienes una cuenta? <a href="#" class="login-link">Login</a></p>
                 </div>
             </form>
-        </div>        
+        </div>
     </div>
     
     <!-- Scripts externos necesarios para el funcionamiento de los iconos y scripts locales -->
     <script src="../Backend/script.js"></script> <!-- Archivo JavaScript local -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script> <!-- Ionicons para navegadores modernos -->
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> <!-- Ionicons para navegadores antiguos -->
+    <script src="../Backend/login.js"></script> <!-- Asegúrate de que la ruta sea la correcta -->
+    <script src="../Backend/registrar.js"></script>
 </body>
 
 </html>

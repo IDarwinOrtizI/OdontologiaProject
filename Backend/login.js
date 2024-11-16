@@ -17,7 +17,8 @@ client.connect(err => {
         console.log('Conexión exitosa a la base de datos');
     }
 });
-module.exports=client;
+module.exports = client;
+
 // Función para loguear un usuario
 const loginUsuario = async (email, contrasena) => {
     try {
@@ -45,8 +46,6 @@ const loginUsuario = async (email, contrasena) => {
     } catch (err) {
         console.error('Error al realizar el login:', err.stack);
         return false; // En caso de error en la consulta
-    } finally {
-        client.end(); // Cerrar la conexión
     }
 };
 
@@ -54,13 +53,23 @@ const loginUsuario = async (email, contrasena) => {
 const loginForm = document.getElementById('loginForm');
 
 // Manejar el envío del formulario
-loginForm.addEventListener('submit', (event) => {
+loginForm.addEventListener('submit', async (event) => {
     event.preventDefault();  // Prevenir el envío tradicional del formulario
 
     // Obtener los valores del email y contraseña
     const email = document.getElementById('email').value;
-    const contrasena = document.getElementById('password').value;
+    const contrasena = document.getElementById('contraseña').value;
 
     // Llamar a la función de login con los valores capturados
-    loginUsuario(email, contrasena);
+    const success = await loginUsuario(email, contrasena);
+
+    if (success) {
+        // Login exitoso, redirigir a otra página o mostrar mensaje
+        alert('Login exitoso');
+        // Redireccionar (ejemplo)
+        window.location.href = '/dashboard'; // Puedes cambiar esta URL según lo que necesites
+    } else {
+        // Login fallido
+        alert('Email o contraseña incorrectos');
+    }
 });
